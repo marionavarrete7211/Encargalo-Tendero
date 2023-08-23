@@ -23,6 +23,11 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.DrawableRes;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -38,15 +43,19 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
+import com.yalantis.ucrop.UCrop;
 
+import java.io.File;
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.UUID;
 
 import mx.com.encargalo.R;
 import mx.com.encargalo.tendero.Inicio_sesion.ui.Mi_tienda.rt_fctautocompletado;
 import mx.com.encargalo.tendero.Util.Util;
 
 import static android.app.Activity.RESULT_OK;
+import static com.facebook.FacebookSdk.getCacheDir;
 
 public class mip_frgproductopropio extends Fragment {
 
@@ -148,6 +157,8 @@ public class mip_frgproductopropio extends Fragment {
         return view;
     }
 
+
+
     public void elegirAccion(){
         dialog = new Dialog(getContext());
         dialog.setContentView(R.layout.pub_dialog_camara_galeria);
@@ -194,6 +205,8 @@ public class mip_frgproductopropio extends Fragment {
         dialog.show();
     }
 
+
+
     public void tomarFoto() {
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE, "Titulo de la Imagen");
@@ -215,26 +228,25 @@ public class mip_frgproductopropio extends Fragment {
         try {
             if (resultCode == RESULT_OK){
                 if(requestCode == SELEC_IMAGEN){
-                    CropImage.activity(data.getData())
-                            .setGuidelines(CropImageView.Guidelines.ON)
-                            .setAspectRatio(1, 1)
-                            .setBorderCornerColor(Color.BLACK)
-                            .start(getContext(), this);
+                    String dest_uri = new StringBuilder(UUID.randomUUID().toString()).append(".jpg").toString();
+                    UCrop.of(data.getData(),Uri.fromFile(new File(getCacheDir(),dest_uri)))
+                            .withAspectRatio(1,1)
+                            .start(getContext(), mip_frgproductopropio.this);
                 }
                 else if(requestCode == TOMAR_FOTO){
-                    CropImage.activity(imageUri)
-                            .setAspectRatio(1, 1)
-                            .setBorderCornerColor(Color.BLACK)
-                            .start(getContext(), this);
+                    String dest_uri = new StringBuilder(UUID.randomUUID().toString()).append(".jpg").toString();
+                    UCrop.of(data.getData(),Uri.fromFile(new File(getCacheDir(),dest_uri)))
+                            .withAspectRatio(1,1)
+                            .start(getContext(), mip_frgproductopropio.this);
                 }
-                else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
+                else if (requestCode == UCrop.REQUEST_CROP){
                     //Croped image received
                     CropImage.ActivityResult result = CropImage.getActivityResult(data);
                     if (resultCode == RESULT_OK){
 
                         SharedPreferences preferencias = requireActivity().getSharedPreferences(Util.ARCHIVO_PREFRENCIAS_PRODUCTO, Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferencias.edit();
-                        Uri resultUri = result.getUri();
+                        Uri resultUri = UCrop.getOutput(data);
                         if(preferencias.getString("lptImagen1", "").equals("")){
                             String imgbase64 = Datosinsertadosimg(mip_ppimgagregarimagen01, editor, resultUri);
                             editor.putString("lptImagen1", imgbase64);

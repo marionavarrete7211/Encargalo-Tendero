@@ -23,6 +23,10 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -69,6 +73,7 @@ public class mip_frgdetalleproducto extends Fragment {
     JsonObjectRequest mip_joreliminarproducto; //+@OHC04.11.2022
 
     int imgsel= 0;
+
     String img01ant_64 = "";
     String img02ant_64 = "";
     String img03ant_64 = "";
@@ -275,6 +280,10 @@ public class mip_frgdetalleproducto extends Fragment {
         dialog.show();
     }
 
+
+
+
+
     public void tomarFoto() {
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE, "Titulo de la Imagen");
@@ -285,7 +294,7 @@ public class mip_frgdetalleproducto extends Fragment {
         startActivityForResult(cameraIntent, TOMAR_FOTO);
     }
     public void seleccionarImagen() {
-        Intent galleryIntent = new Intent(Intent.ACTION_PICK);
+        Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
         galleryIntent.setType("image/*");
         startActivityForResult(galleryIntent, SELEC_IMAGEN);
     }

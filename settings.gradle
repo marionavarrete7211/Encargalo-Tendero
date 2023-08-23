@@ -1,2 +1,3 @@
 rootProject.name = "My Application"
 include ':app'
+include("com.theartofdev.edmodo","android-image-cropper")

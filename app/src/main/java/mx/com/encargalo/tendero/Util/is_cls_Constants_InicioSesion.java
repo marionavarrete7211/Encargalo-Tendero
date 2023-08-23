@@ -19,7 +19,7 @@ public class is_cls_Constants_InicioSesion {
     public static String rolusuario = "1";
     public static String idDocumentoPersona = "idDocumentoPersona";
     public static final  String EMAILNOTIFICACIONES = "sonikkunchanthehedgehog1991@gmail.com";
-    public static final String PASSWORD = "qxevlvmowfjbdnfj";
+    public static final String PASSWORD = "nlqashmeigbbkezq";
 
     public static boolean isNetworkAvailable(Activity activity) {
         try {
