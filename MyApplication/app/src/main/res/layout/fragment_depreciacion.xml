@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="10sp"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true"
+    tools:context=".MainActivity">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+
+            </LinearLayout>
+
+
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Activo fijo (catalogo de costos)"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/activofijo"
+                android:layout_width="335dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:inputType="textMultiLine"/>
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Unidades"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/unidades"
+                android:layout_width="335dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:inputType="textMultiLine"/>
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Valor unitario"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/valorunitario"
+                android:layout_width="335dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:inputType="textMultiLine"/>
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Total"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/total"
+                android:layout_width="335dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:inputType="textMultiLine"/>
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Vida útil anual"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/vidaanual"
+                android:layout_width="335dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:inputType="textMultiLine"/>
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Vida útil mensual"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/vidamensual"
+                android:layout_width="335dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:inputType="textMultiLine"/>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

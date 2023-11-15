@@ -1,0 +1,64 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="729dp"
+        android:layout_marginTop="94dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:clickable="true"
+        tools:layout_editor_absoluteX="33dp">
+
+        <Button
+            android:id="@+id/btn_convenio"
+            style="@style/Outlined_buttonXL_green"
+            android:layout_width="393dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:drawableLeft="@drawable/convenio__1_"
+            android:text="Sueldo del Emprendedor" />
+
+
+        <Button
+            android:id="@+id/btn_regularizar"
+            style="@style/Outlined_buttonXL_green"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:drawableLeft="@drawable/regularizar__1_"
+            android:text="Depreciación" />
+
+        <Button
+            android:id="@+id/btn_info_general"
+            style="@style/Outlined_buttonXL_green"
+            android:layout_width="389dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="20dp"
+            android:drawableLeft="@drawable/infogeneral__1_"
+            android:drawablePadding="10dp"
+            android:text="Amortización" />
+
+        <Button
+            android:id="@+id/btn_registro_suelo"
+            style="@style/Outlined_buttonXL_green"
+            android:layout_width="389dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="20dp"
+
+            android:drawablePadding="10dp"
+            android:text="Costos de Operación" />
+
+
+
+
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
